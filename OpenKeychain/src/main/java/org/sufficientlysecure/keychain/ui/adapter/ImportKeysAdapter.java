@@ -111,7 +111,7 @@ public class ImportKeysAdapter extends ArrayAdapter<ImportKeysListEntry> {
             holder = (ViewHolder) convertView.getTag();
         }
         // main user id
-        String userId = entry.userIds.get(0);
+        String userId = entry.getPrimaryUserId();
         String[] userIdSplit = PgpKeyHelper.splitUserId(userId);
 
         // name
