@@ -129,6 +129,12 @@ public class Preferences {
         editor.commit();
     }
 
+    public void setConcealVersion(boolean value) {
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putBoolean(Constants.Pref.CONCEAL_VERSION, value);
+        editor.commit();
+    }
+
     public boolean getForceV3Signatures() {
         return mSharedPreferences.getBoolean(Constants.Pref.FORCE_V3_SIGNATURES, false);
     }

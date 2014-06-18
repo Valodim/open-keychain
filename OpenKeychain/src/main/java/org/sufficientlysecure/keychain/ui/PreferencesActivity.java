@@ -30,6 +30,7 @@ import android.preference.PreferenceScreen;
 import org.spongycastle.bcpg.HashAlgorithmTags;
 import org.spongycastle.openpgp.PGPEncryptedData;
 import org.sufficientlysecure.keychain.Constants;
+import org.sufficientlysecure.keychain.Constants.Pref;
 import org.sufficientlysecure.keychain.R;
 import org.sufficientlysecure.keychain.helper.Preferences;
 import org.sufficientlysecure.keychain.ui.widget.IntegerListPreference;
@@ -117,6 +118,9 @@ public class PreferencesActivity extends PreferenceActivity {
 
             initializeAsciiArmor(
                     (CheckBoxPreference) findPreference(Constants.Pref.DEFAULT_ASCII_ARMOR));
+
+            initializeConcealVersion(
+                    (CheckBoxPreference) findPreference(Constants.Pref.CONCEAL_VERSION));
 
             initializeForceV3Signatures(
                     (CheckBoxPreference) findPreference(Constants.Pref.FORCE_V3_SIGNATURES));
@@ -262,6 +266,9 @@ public class PreferencesActivity extends PreferenceActivity {
             initializeAsciiArmor(
                     (CheckBoxPreference) findPreference(Constants.Pref.DEFAULT_ASCII_ARMOR));
 
+            initializeConcealVersion(
+                    (CheckBoxPreference) findPreference(Constants.Pref.CONCEAL_VERSION));
+
             initializeForceV3Signatures(
                     (CheckBoxPreference) findPreference(Constants.Pref.FORCE_V3_SIGNATURES));
         }
@@ -380,6 +387,17 @@ public class PreferencesActivity extends PreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 mAsciiArmor.setChecked((Boolean) newValue);
                 sPreferences.setDefaultAsciiArmor((Boolean) newValue);
+                return false;
+            }
+        });
+    }
+
+    private static void initializeConcealVersion(final CheckBoxPreference concealVersion) {
+        concealVersion.setChecked(sPreferences.getDefaultAsciiArmor());
+        concealVersion.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                concealVersion.setChecked((Boolean) newValue);
+                sPreferences.setConcealVersion((Boolean) newValue);
                 return false;
             }
         });

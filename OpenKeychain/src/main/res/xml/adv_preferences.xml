@@ -44,5 +44,9 @@
             android:key="forceV3Signatures"
             android:persistent="false"
             android:title="@string/label_force_v3_signature" />
+        <CheckBoxPreference
+            android:key="concealVersion"
+            android:persistent="false"
+            android:title="@string/label_conceal_version" />
     </PreferenceCategory>
 </PreferenceScreen>

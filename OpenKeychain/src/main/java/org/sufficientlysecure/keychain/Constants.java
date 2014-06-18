@@ -60,6 +60,7 @@ public final class Constants {
         public static final String DEFAULT_ASCII_ARMOR = "defaultAsciiArmor";
         public static final String DEFAULT_MESSAGE_COMPRESSION = "defaultMessageCompression";
         public static final String DEFAULT_FILE_COMPRESSION = "defaultFileCompression";
+        public static final String CONCEAL_VERSION = "concealVersion";
         public static final String PASSPHRASE_CACHE_TTL = "passphraseCacheTtl";
         public static final String LANGUAGE = "language";
         public static final String FORCE_V3_SIGNATURES = "forceV3Signatures";
